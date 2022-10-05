@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <form method="POST" action="/">
+        <select name="category">
+            <option value="0">Select Category</option>
+            <option value="HOME_APPIENTS">HOME APPIENTS</option>
+            <option value="ELECTRONICS">ELECTRONICS</option>
+            <option value="BEAUTY">BEAUTY</option>
+        </select>
+        <input type="submit" value="SUBMIT">
+    </form>
+    <form action="/" method="GET">
+        <input type="submit" value="REFRESH">
+    </form>
+    {% if products %}
+    {% for product in products %}
+    <h3>product {{ product.product_name }}</h3>
+    <h4>price {{ product.price }}</h4>
+    <h4>rating {{ product.rating }}</h4>
+    {% endfor %}
+    {% endif %}
+    
+</body>
+</html>

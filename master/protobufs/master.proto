@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+enum ProductCategory {
+    HOME_APPIENTS = 0;
+    ELECTRONICS = 1;
+    BEAUTY = 2;
+}
+message ProductRequest {
+    ProductCategory category = 1;
+}
+
+message ProductsList {
+    string product_name = 1;
+    int32 price = 2;
+    int32 rating = 3;
+}
+
+message ProductResponse {
+    repeated ProductsList products = 1;
+}
+
+
+service Products {
+    rpc Recommend (ProductRequest) returns (ProductResponse);
+}
